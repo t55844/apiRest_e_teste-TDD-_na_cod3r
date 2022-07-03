@@ -20,11 +20,12 @@ const supertest = require('supertest')
 
 const request = supertest('http://www.google.com')
 
-//A resposta que vira sera a 200 mas sem o return ele nao espera e continua com se desse certo
+//A resposta que vira sera a 200 mas sem o return ele nao espera e continua como se desse certo
 //Mesmo os codigos sendo os mesmo sem o return ele nao funciona por que e asincrono
 
 test('Sincronismo com return faz a execução esperar  a resposta', () => {
-    return request.get('/')
+    //coloque o return para ver o teste de sincronismo
+    request.get('/')
         .then(res => expect(res.status).toBe(400))// vai falhar
 })
 
